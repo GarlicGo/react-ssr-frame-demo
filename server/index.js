@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import express from 'express';
-import { insertData } from './ssr-api/head-data.js';
+import { getServerData } from './data.js';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production';
@@ -38,20 +38,19 @@ app.use('*all', async (req, res) => {
 
     /** @type {string} */
     let template;
-    /** @type {import('./src/entry-server.js').render} */
+    /** @type {import('../src/entry-server.tsx').render} */
     let render;
     if (!isProduction) {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8');
       template = await vite.transformIndexHtml(url, template);
-      render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render;
+      render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
     } else {
       template = templateHtml;
       render = (await import('./dist/server/entry-server.js')).render;
     }
-    const { data, script } = await insertData();
-    console.log('insert data:', data);
 
+    const { data, script } = await getServerData();
     const rendered = await render(url, data);
 
     const html = template

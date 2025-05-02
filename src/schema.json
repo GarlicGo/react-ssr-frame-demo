@@ -1,0 +1,28 @@
+{
+  "Feeds": {
+    "type": "object",
+    "properties": {
+      "type": "array",
+      "items": {
+        "name": "string",
+        "image": "string"
+      }
+    }
+  },
+  "Banners": {
+    "type": "object",
+    "properties": {
+      "info": {
+        "title": "string",
+        "description": "string"
+      },
+      "list": {
+        "type": "array",
+        "items": {
+          "image": "string"
+        }
+      }
+    }
+  },
+  "ViteTemplate": {}
+}

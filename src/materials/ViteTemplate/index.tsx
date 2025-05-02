@@ -1,14 +1,12 @@
-import './App.css';
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import { Child } from './Child';
+import React, { useState } from 'react';
+import reactLogo from '../../assets/react.svg';
+import './index.css';
 
-function App({ data }) {
-  console.log('App data:', data);
+const ViteTemplate: React.FC = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -21,13 +19,12 @@ function App({ data }) {
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-      <Child data={data?.Child}/>
-    </>
+    </div>
   );
-}
+};
 
-export default App;
+export default ViteTemplate;
