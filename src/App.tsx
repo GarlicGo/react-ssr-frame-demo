@@ -3,7 +3,7 @@ import { Solution, SolutionProps } from './Solution';
 
 interface Props {
   data?: {
-    components: SolutionProps['components'];
+    components?: SolutionProps['components'];
   };
 }
 
