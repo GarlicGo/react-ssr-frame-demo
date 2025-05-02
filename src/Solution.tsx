@@ -1,7 +1,7 @@
 import React from 'react';
 import schemaMap from './schema-map';
 
-type SolutionProps = {
+export type SolutionProps = {
   components: {
     name: string;
     props: unknown;

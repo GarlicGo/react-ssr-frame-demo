@@ -3,7 +3,7 @@ import Banners from './materials/Banners';
 import ViteTemplate from './materials/ViteTemplate';
 
 interface SchemaMap {
-  [key: string]: React.FC<{ data?: any }>;
+  [key: string]: React.FC<{ data?: unknown }>;
 }
 
 const schemaMap: SchemaMap = {
