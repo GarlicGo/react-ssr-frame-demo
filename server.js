@@ -57,7 +57,7 @@ app.use('*all', async (req, res) => {
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
-      .replace(`<!--app-window-data-->`, script ?? '');
+      .replace(`<!--app-data-->`, script ?? '');
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
   } catch (e) {
