@@ -1,5 +1,5 @@
 import React from 'react';
-import { Solution } from './solution';
+import { Solution } from './Solution';
 
 interface Props {
   data?: any;
