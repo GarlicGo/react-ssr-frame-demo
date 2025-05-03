@@ -1,6 +1,5 @@
 import React from 'react';
 import { Solution, SolutionProps } from './Solution';
-
 interface Props {
   data?: {
     components?: SolutionProps['components'];

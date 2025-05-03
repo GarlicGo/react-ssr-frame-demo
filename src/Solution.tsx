@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import schemaMap from './schema-map';
 
 export type SolutionProps = {
@@ -15,7 +15,14 @@ export const Solution: React.FC<SolutionProps> = (props) => {
     <>
       {components.map((component, index) => {
         const Component = schemaMap[component.name];
-        return !Component ? null : <Component key={index} data={component.props} />;
+        
+        if (!Component) return null;
+
+        return (
+          <Suspense key={index} fallback={<div>Loading...</div>}>
+            <Component data={component.props} />
+          </Suspense>
+        );
       })}
     </>
   );

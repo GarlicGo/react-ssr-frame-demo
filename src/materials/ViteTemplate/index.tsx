@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import reactLogo from '../../assets/react.svg';
 import './index.css';
+import { clearCache } from '../../utils';
 
 const ViteTemplate: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ const ViteTemplate: React.FC = () => {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        <button onClick={() => clearCache()}>clear cache</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

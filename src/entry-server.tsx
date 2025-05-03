@@ -1,12 +1,12 @@
-import { StrictMode } from 'react'
-import { renderToString } from 'react-dom/server'
-import App from './App'
+import { StrictMode } from 'react';
+import { type RenderToPipeableStreamOptions, renderToPipeableStream } from 'react-dom/server';
+import App from './App';
 
-export function render(_url: string, _data: any) {
-  const html = renderToString(
+export function render(_url: string, options?: RenderToPipeableStreamOptions, data?: any) {
+  return renderToPipeableStream(
     <StrictMode>
-      <App data={_data} />
+      <App data={data} />
     </StrictMode>,
-  )
-  return { html }
+    options,
+  );
 }

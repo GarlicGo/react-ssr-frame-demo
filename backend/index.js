@@ -27,6 +27,16 @@ app.get('/page-schema/feeds-only', (_, res) => {
   });
 });
 
+app.get('/page-schema/vite', (_, res) => {
+  res.send({
+    components: [
+      {
+        name: 'ViteTemplate',
+      },
+    ],
+  });
+});
+
 app.get('/page-schema/full', (_, res) => {
   res.send({
     components: [
